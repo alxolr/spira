@@ -1,0 +1,22 @@
+[package]
+authors = ["Alexandru Olaru <alxolr@gmail.com>"]
+description = "A neural network library"
+edition = "2021"
+include = [
+  "**/*.rs",
+  "Cargo.toml",
+]
+keywords = ["inflectra", "spira", "client-api"]
+license = "MIT OR Apache-2.0"
+name = "spira"
+repository = "https://github.com/alxolr/spira"
+version = "0.0.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = {version = "0.11", features = ["json"]}
+serde = {version = "1", features = ["derive"]}
+serde_json = "1.0"
+serde_with = "1.12"
+serde_yaml = "0.8"
