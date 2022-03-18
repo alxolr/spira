@@ -1,6 +1,4 @@
-use std::env;
-
-use reqwest::{header::HeaderValue, Client};
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
@@ -32,17 +30,6 @@ pub struct TaskDto {
 
     #[serde(rename = "EstimatedEffort")]
     pub estimated_effort: u64,
-}
-
-impl TaskDto {
-    pub fn get_link(&self) -> String {
-        format!(
-            "{}/{}/Task/{}.aspx",
-            env::var("SPIRA_BASE_URL").unwrap(),
-            self.project_id,
-            self.task_id.unwrap()
-        )
-    }
 }
 
 pub struct TaskClient<'a> {

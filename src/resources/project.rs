@@ -6,9 +6,9 @@ use crate::Response;
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ProjectDto {
     #[serde(rename = "Name")]
-    name: String,
+    pub name: Option<String>,
     #[serde(rename = "ProjectId")]
-    project_id: u64,
+    pub project_id: Option<u64>,
 }
 
 pub struct ProjectClient<'a> {
