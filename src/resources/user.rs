@@ -6,9 +6,9 @@ use crate::Response;
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct UserDto {
     #[serde(rename = "UserId")]
-    pub user_id: u64,
+    pub user_id: Option<u64>,
     #[serde(rename = "FullName")]
-    pub full_name: String,
+    pub full_name: Option<String>,
 }
 
 pub struct UserClient<'a> {

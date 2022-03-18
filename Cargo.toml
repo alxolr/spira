@@ -1,6 +1,6 @@
 [package]
 authors = ["Alexandru Olaru <alxolr@gmail.com>"]
-description = "A neural network library"
+description = "Rust client implementation for Inflectra Spira API"
 edition = "2021"
 include = [
   "**/*.rs",
@@ -10,7 +10,7 @@ keywords = ["inflectra", "spira", "client-api"]
 license = "MIT OR Apache-2.0"
 name = "spira"
 repository = "https://github.com/alxolr/spira"
-version = "0.0.1"
+version = "0.0.2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

@@ -1,4 +1,4 @@
-# spira@0.0.1
+# spira@0.0.2
 
 Inflectra Spira Rust Client
 
@@ -20,3 +20,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 ```
+
+## Resources
+
+### Tasks
+
+Get, Create, Update, Delete
