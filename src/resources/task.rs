@@ -6,6 +6,7 @@ use crate::Response;
 
 #[skip_serializing_none]
 #[derive(Serialize, Deserialize, Debug)]
+/// The Task fields
 pub struct TaskDto {
     /// The id of the task
     #[serde(rename = "TaskId")]
@@ -88,7 +89,7 @@ pub struct TaskDto {
     #[serde(rename = "ConcurrencyDate")]
     pub concurrency_date: Option<String>,
 }
-
+/// The Task Artifact Submodule
 pub struct TaskClient<'a> {
     client: Client,
     base_url: &'a str,
@@ -154,7 +155,7 @@ impl<'a> TaskClient<'a> {
         Ok(())
     }
 
-    /// Updates a task in the system
+    /// Deletes a task in the system
     pub async fn delete(&self, project_id: u64, task_id: u64) -> Response<()> {
         self.client
             .delete(self.append_to_url(&format!("/projects/{}/tasks/{}", project_id, task_id)))
