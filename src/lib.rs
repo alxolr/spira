@@ -8,10 +8,11 @@ use reqwest::{
     header::{HeaderMap, HeaderValue},
     Client,
 };
-use resources::requirement::RequirementClient;
+use resources::{
+    incident::IncidentClient, project::ProjectClient, requirement::RequirementClient,
+    task::TaskClient, user::UserClient,
+};
 use std::time::Duration;
-
-use self::resources::{project::ProjectClient, task::TaskClient, user::UserClient};
 
 /// The main client, contains child clients for each resource type like:
 /// TaskClient, ProjectClient, UserClient
@@ -20,6 +21,7 @@ pub struct SpiraClient<'a> {
     pub project: ProjectClient<'a>,
     pub user: UserClient<'a>,
     pub requirement: RequirementClient<'a>,
+    pub incident: IncidentClient<'a>,
 }
 
 type Response<T> = Result<T, Box<dyn std::error::Error>>;
@@ -58,12 +60,14 @@ impl<'a> SpiraClient<'a> {
         let task = TaskClient::new(client.clone(), base_url);
         let project = ProjectClient::new(client.clone(), base_url);
         let requirement = RequirementClient::new(client.clone(), base_url);
+        let incident = IncidentClient::new(client.clone(), base_url);
         let user = UserClient::new(client, base_url);
 
         Ok(SpiraClient {
-            task,
+            incident,
             requirement,
             project,
+            task,
             user,
         })
     }

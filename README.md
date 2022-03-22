@@ -22,4 +22,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ```
 
 ## Documentation
-Crate [spira@0.0.3](https://docs.rs/spira/0.0.3/spira/) docs
+Crate [spira@0.0.4](https://docs.rs/spira/0.0.4/spira/) docs

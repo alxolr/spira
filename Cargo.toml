@@ -10,7 +10,7 @@ keywords = ["inflectra", "spira", "client-api"]
 license = "MIT OR Apache-2.0"
 name = "spira"
 repository = "https://github.com/alxolr/spira"
-version = "0.0.3"
+version = "0.0.4"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

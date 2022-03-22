@@ -1,8 +1,10 @@
-/// Project Client
+/// Incident Rest Client
+pub mod incident;
+/// Project Rest Client
 pub mod project;
-/// Requirement Client
+/// Requirement Rest Client
 pub mod requirement;
-/// Task Client
+/// Task Rest Client
 pub mod task;
-/// User Client
+/// User Rest Client
 pub mod user;
