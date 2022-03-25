@@ -1,4 +1,4 @@
-# spira@0.0.3
+# spira@0.0.4
 
 Inflectra Spira Rust Client
 
@@ -22,4 +22,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ```
 
 ## Documentation
+
 Crate [spira@0.0.4](https://docs.rs/spira/0.0.4/spira/) docs
+
+## Task
+
+Getting a task by id
+
+```rust
+/// ...
+let task: TaskDto = spira_client.task.get(100 /* project_id */, task_id /* task_id */).await?;
+```
+
+## Requirement
+
+Getting a requirement by id
+
+```rust
+/// ...
+let requirement: RequirementDto = spira_client.requirement.get(100 /* project_id */, 1500 /* requirement_id */).await?;
+```
