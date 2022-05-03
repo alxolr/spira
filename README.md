@@ -1,4 +1,4 @@
-# spira@0.0.4
+# spira@0.0.5
 
 Inflectra Spira Rust Client
 

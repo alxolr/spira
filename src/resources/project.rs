@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::Response;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
 pub struct ProjectDto {
     #[serde(rename = "Name")]
     pub name: Option<String>,

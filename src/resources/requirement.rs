@@ -5,7 +5,7 @@ use serde_with::skip_serializing_none;
 use crate::Response;
 
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
 /// The Requirement fields
 pub struct RequirementDto {
     /// The id of the requirement (integer)
@@ -182,7 +182,11 @@ impl<'a> RequirementClient<'a> {
     pub async fn update(&self, project_id: u64, requirement: RequirementDto) -> Response<()> {
         let json_requirement = serde_json::to_string(&requirement)?;
         self.client
-            .put(self.append_to_url(&format!("/projects/{}/requirements", project_id)))
+            .put(self.append_to_url(&format!(
+                "/projects/{}/requirements/{}",
+                project_id,
+                requirement.requirement_id.unwrap()
+            )))
             .body(json_requirement)
             .send()
             .await?;

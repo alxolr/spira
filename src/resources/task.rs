@@ -5,7 +5,8 @@ use serde_with::skip_serializing_none;
 use crate::Response;
 
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
+
 /// The Task fields
 pub struct TaskDto {
     /// The id of the task
@@ -89,6 +90,7 @@ pub struct TaskDto {
     #[serde(rename = "ConcurrencyDate")]
     pub concurrency_date: Option<String>,
 }
+
 /// The Task Artifact Submodule
 pub struct TaskClient<'a> {
     client: Client,

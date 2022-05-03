@@ -5,7 +5,7 @@ use serde_with::skip_serializing_none;
 use crate::Response;
 
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Default)]
 /// The Incident fields
 pub struct IncidentDto {
     /// The id of the incident (integer)
@@ -180,7 +180,11 @@ impl<'a> IncidentClient<'a> {
     pub async fn update(&self, project_id: u64, incident: IncidentDto) -> Response<()> {
         let json_incident = serde_json::to_string(&incident)?;
         self.client
-            .put(self.append_to_url(&format!("/projects/{}/incidents", project_id)))
+            .put(self.append_to_url(&format!(
+                "/projects/{}/incidents/{}",
+                project_id,
+                incident.incident_id.unwrap()
+            )))
             .body(json_incident)
             .send()
             .await?;
