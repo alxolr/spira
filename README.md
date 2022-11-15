@@ -1,4 +1,4 @@
-# spira@0.0.5
+# spira@0.0.6
 
 Inflectra Spira Rust Client
 
@@ -23,7 +23,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Documentation
 
-Crate [spira@0.0.4](https://docs.rs/spira/0.0.4/spira/) docs
+Crate [spira@0.0.6](https://docs.rs/spira/0.0.6/spira/) docs
 
 ## Task
 

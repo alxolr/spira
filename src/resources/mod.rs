@@ -8,3 +8,6 @@ pub mod requirement;
 pub mod task;
 /// User Rest Client
 pub mod user;
+
+/// Release Rest Client
+pub mod release;
