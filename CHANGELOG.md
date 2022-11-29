@@ -1,3 +1,7 @@
+# 0.0.7
+- Added ProjectTemplate list api
+- Added Incident Statuses list api
+
 # 0.0.6
 
 - Added Releases API

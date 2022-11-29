@@ -122,6 +122,7 @@ pub struct IncidentDto {
     pub is_attachements: Option<bool>,
 }
 
+
 /// The Requirement Artifact Submodule
 pub struct IncidentClient<'a> {
     client: Client,

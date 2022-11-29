@@ -9,8 +9,8 @@ use reqwest::{
     Client,
 };
 use resources::{
-    incident::IncidentClient, project::ProjectClient, release::ReleaseClient,
-    requirement::RequirementClient, task::TaskClient, user::UserClient,
+    incident::IncidentClient, project::ProjectClient, project_template::ProjectTemplateClient,
+    release::ReleaseClient, requirement::RequirementClient, task::TaskClient, user::UserClient,
 };
 use std::time::Duration;
 
@@ -23,6 +23,7 @@ pub struct SpiraClient<'a> {
     pub requirement: RequirementClient<'a>,
     pub incident: IncidentClient<'a>,
     pub release: ReleaseClient<'a>,
+    pub project_template: ProjectTemplateClient<'a>,
 }
 
 type Response<T> = Result<T, Box<dyn std::error::Error>>;
@@ -63,7 +64,8 @@ impl<'a> SpiraClient<'a> {
         let requirement = RequirementClient::new(client.clone(), base_url);
         let incident = IncidentClient::new(client.clone(), base_url);
         let user = UserClient::new(client.clone(), base_url);
-        let release = ReleaseClient::new(client, base_url);
+        let release = ReleaseClient::new(client.clone(), base_url);
+        let project_template = ProjectTemplateClient::new(client, base_url);
 
         Ok(SpiraClient {
             incident,
@@ -72,6 +74,7 @@ impl<'a> SpiraClient<'a> {
             task,
             user,
             release,
+            project_template,
         })
     }
 }
