@@ -37,20 +37,6 @@ impl<'a> ProjectTemplateClient<'a> {
         ProjectTemplateClient { client, base_url }
     }
 
-    pub async fn list(&self) -> Response<Vec<ProjectTemplateDto>> {
-        let projects = self
-            .client
-            .get(self.append_to_url("/project-templates"))
-            .send()
-            .await?;
-
-        println!("{:#?}", projects);
-            // .json::<Vec<ProjectTemplateDto>>()
-            // .await?;
-
-        Ok(vec![])
-    }
-
     pub async fn incident_status_list(
         &self,
         project_template_id: u64,

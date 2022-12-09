@@ -1,5 +1,8 @@
+use std::collections::HashMap;
+
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use serde_with::skip_serializing_none;
 
 use crate::Response;
@@ -120,8 +123,10 @@ pub struct IncidentDto {
     /// Does this artifact have any attachments?
     #[serde(rename = "IsAttachments")]
     pub is_attachements: Option<bool>,
-}
 
+    #[serde(rename = "CustomProperties")]
+    pub custom_properties: Option<Vec<HashMap<String, Value>>>,
+}
 
 /// The Requirement Artifact Submodule
 pub struct IncidentClient<'a> {
